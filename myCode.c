@@ -61,7 +61,12 @@ int main() {
 
 			//Loop over the dataset
 			for (int i = 0; i < 152; i++) {
+
+				int totalDistance = 0;
+				int matchesFound = 0;
+
 				if (numbers[i] == mainNumber) {
+					matchesFound++;
 					int j = 0;
 					for (j = i; j < 152; j++) {
 						if (numbers[j] == matchNumber) {
@@ -69,7 +74,11 @@ int main() {
 						}
 					}
 					printf("Current distance from main number %d to matchNumber %d is %d\n", mainNumber, matchNumber, j - i);
+					totalDistance += j - i;
 				}
+
+				printf("Average distance from main number %d to matchNumber %d was %d\n", mainNumber, matchNumber, totalDistance / matchesFound);
+
 			}
 		}
 	}
