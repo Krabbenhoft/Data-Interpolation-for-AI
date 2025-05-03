@@ -59,11 +59,12 @@ int main() {
 		//Loop over each number you want to match against
 		for (int matchNumber = 19; matchNumber < 26; matchNumber++) {
 
+			int totalDistance = 0;
+			int matchesFound = 0;
+
 			//Loop over the dataset
 			for (int i = 0; i < 152; i++) {
 
-				int totalDistance = 0;
-				int matchesFound = 0;
 
 				if (numbers[i] == mainNumber) {
 					matchesFound++;
@@ -73,12 +74,17 @@ int main() {
 							break;
 						}
 					}
-					printf("Current distance from main number %d to matchNumber %d is %d\n", mainNumber, matchNumber, j - i);
-					totalDistance += j - i;
+					//printf("Current distance from main number %d to matchNumber %d is %f\n", mainNumber, matchNumber, j - i);
+					totalDistance += (j - i);
+
 				}
 
-				printf("Average distance from main number %d to matchNumber %d was %d\n", mainNumber, matchNumber, totalDistance / matchesFound);
-
+			}
+			if (matchesFound != 0) {
+				printf("Average distance from main number %d to matchNumber %d was %f\n", mainNumber, matchNumber, (totalDistance * 1.0) / matchesFound);
+			}
+			else {
+				printf("Average distance from main number %d to matchNumber %d was %d\n", mainNumber, matchNumber, 0);
 			}
 		}
 	}
